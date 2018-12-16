@@ -1,8 +1,8 @@
 {
-  "name": "dexGo",
+  "name": "Dex Go",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Fernando Ramirez",
+  "homepage": "https://github.com/FernandoX7",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
