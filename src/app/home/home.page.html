@@ -24,7 +24,9 @@
     <ion-item *ngFor="let item of pokemon"
               (click)="goToPokemonDetails(item?.url)">
       <ion-avatar slot="start">
-        <img src="/docs/assets/img/avatar-finn.png"/>
+        <img appImageError
+             onErrorSrc="/assets/shapes.svg"
+             [src]="item?.sprites?.front_default">
       </ion-avatar>
       <ion-label>
         <h2>{{item?.name}}</h2>
