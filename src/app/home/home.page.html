@@ -28,6 +28,8 @@
     <ion-item *virtualItem="let item"
               (click)="goToPokemonDetails(item?.url)">
       <ion-avatar slot="start">
+        <!--NOTE: <ion-img> is recommended here but we are not using it due to-->
+        <!--it not emmiting events such as (error)-->
         <img appImageError
              onErrorSrc="/assets/shapes.svg"
              [src]="item?.sprites?.front_default">
