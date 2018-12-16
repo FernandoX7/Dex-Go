@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
+import { ImageErrorDirective } from '../_directives/image-error.directive';
 
 @NgModule({
   imports: [
@@ -18,6 +19,10 @@ import { HomePage } from './home.page';
       }
     ])
   ],
-  declarations: [HomePage]
+  declarations: [
+    HomePage,
+    ImageErrorDirective
+  ]
 })
-export class HomePageModule {}
+export class HomePageModule {
+}
