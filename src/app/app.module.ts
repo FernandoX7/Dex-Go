@@ -9,12 +9,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CacheModule } from 'ionic-cache';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
+    CacheModule.forRoot(),
     HttpClientModule,
     IonicModule.forRoot({mode: 'md'}),
     AppRoutingModule
