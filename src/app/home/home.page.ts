@@ -35,7 +35,16 @@ export class HomePage implements OnInit {
   }
 
   forceReload(refresher) {
-    this.pokedexService.getAllPokemon(refresher);
+    this.pokedexService.getAllPokemon(refresher)
+      .subscribe((pokemon) => this.pokemon = pokemon);
+  }
+
+  // TODO: Add a correct header function to seperate pokemon generations
+  myHeaderFn(record, recordIndex, records) {
+    if (recordIndex % 20 === 0) {
+      return 'Header ' + recordIndex;
+    }
+    return null;
   }
 
 }
