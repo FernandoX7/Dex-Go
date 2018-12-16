@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokedexService } from '../_services/pokedex.service';
 import { NavController } from '@ionic/angular';
+import { DexGoConstants } from '../_utilities/DexGoConstants';
 
 @Component({
   selector: 'app-home',
@@ -16,15 +17,25 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadPokemon();
+  }
+
+  loadPokemon() {
     this.pokedexService.getAllPokemon()
-      .subscribe((pokemon: any) => {
-        console.log('pokemon', pokemon);
-        this.pokemon = pokemon;
-      });
+      .subscribe((pokemon) => this.pokemon = pokemon);
   }
 
   goToPokemonDetails(index: number) {
     this.navController.navigateForward(`/pokemon/${index}`);
+  }
+
+  invalidateCache() {
+    this.pokedexService.clearCache(DexGoConstants.CACHE_ALL_POKEMON)
+      .then(() => console.log('Cache successfully cleared'));
+  }
+
+  forceReload(refresher) {
+    this.pokedexService.getAllPokemon(refresher);
   }
 
 }

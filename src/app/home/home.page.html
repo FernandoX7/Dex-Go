@@ -10,9 +10,19 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="forceReload($event)">
+    <ion-refresher-content refreshingText="Forcing API reload...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-button
+          (click)="invalidateCache()">
+    Invalidate Cache
+  </ion-button>
+
   <ion-list>
     <ion-item *ngFor="let item of pokemon"
-    (click)="goToPokemonDetails(item?.url)">
+              (click)="goToPokemonDetails(item?.url)">
       <ion-avatar slot="start">
         <img src="/docs/assets/img/avatar-finn.png"/>
       </ion-avatar>
