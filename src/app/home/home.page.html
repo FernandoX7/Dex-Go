@@ -37,7 +37,9 @@
 
           <div class="types-container">
             <div class="tag"
-                 *ngFor="let type of item?.types">
+                 appStyleType
+                 *ngFor="let type of item?.types"
+                 [pokemonType]="type?.type?.name">
               {{type?.type?.name}}
             </div>
           </div>
