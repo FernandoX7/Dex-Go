@@ -23,7 +23,13 @@ export class PokemonDetailPage implements OnInit {
 
   getPokemonDetails(id) {
     this.pokedexService.getPokemonById(id, false)
-      .subscribe((result) => this.pokemonDetails = result);
+      .subscribe((pokemonDetails: any) => {
+        this.pokemonDetails = pokemonDetails;
+
+        this.pokedexService.getSpeciesDetailsById(id, false)
+          .subscribe((speciesDetails: any) =>
+            this.pokemonDetails.speciesDetails = speciesDetails);
+      });
   }
 
 }

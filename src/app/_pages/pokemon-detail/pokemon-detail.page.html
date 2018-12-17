@@ -7,5 +7,18 @@
 </ion-header>
 
 <ion-content padding>
-  <img src="{{pokemonDetails?.sprites?.front_default}}"/>
+  <ion-card>
+    <ion-img src="{{pokemonDetails?.sprites?.front_default}}">
+    </ion-img>
+    <ion-card-header>
+      <ion-card-title>
+        {{pokemonDetails?.name}} #{{pokemonID}}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        {{pokemonDetails?.speciesDetails?.flavor_text_entries[1].flavor_text}}
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
