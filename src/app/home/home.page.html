@@ -16,7 +16,7 @@
   </ion-refresher>
 
   <ion-virtual-scroll [items]="pokemon"
-                      [headerFn]="myHeaderFn">
+                      [headerFn]="setupPokemonGenerationsHeader">
     <ion-item-divider *virtualHeader="let header">
       {{ header }}
     </ion-item-divider>

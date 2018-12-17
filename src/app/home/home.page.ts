@@ -42,11 +42,25 @@ export class HomePage implements OnInit {
       .subscribe((pokemon) => this.pokemon = pokemon);
   }
 
-  // TODO: Add a correct header function to seperate pokemon generations
-  myHeaderFn(record, recordIndex, records) {
-    if (recordIndex % 20 === 0) {
-      return 'Header ' + recordIndex;
+  setupPokemonGenerationsHeader(record, recordIndex, records) {
+    if (recordIndex === 0) {
+      return 'Generation 1';
+    } else if (recordIndex === 151) {
+      return 'Generation 2';
+    } else if (recordIndex === 251) {
+      return 'Generation 3';
+    } else if (recordIndex === 386) {
+      return 'Generation 4';
+    } else if (recordIndex === 493) {
+      return 'Generation 5';
+    } else if (recordIndex === 649) {
+      return 'Generation 6';
+    } else if (recordIndex === 721) {
+      return 'Generation 7';
+    } else if (recordIndex === 802) {
+      return 'Other';
     }
+
     return null;
   }
 
