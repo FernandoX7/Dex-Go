@@ -36,11 +36,9 @@
           </div>
 
           <div class="types-container">
-            <div class="tag">
-              Fire
-            </div>
-            <div class="tag">
-              Psychic
+            <div class="tag"
+                 *ngFor="let type of item?.types">
+              {{type?.type?.name}}
             </div>
           </div>
         </div>
