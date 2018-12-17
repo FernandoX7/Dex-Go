@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
+  },
+  {
+    path: 'pokemon-detail',
+    loadChildren: './_pages/pokemon-detail/pokemon-detail.module#PokemonDetailPageModule'
   }
 ];
 
