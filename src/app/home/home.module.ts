@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { ImageErrorDirective } from '../_directives/image-error.directive';
+import { StyleTypeDirective } from '../_directives/style-type.directive';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { ImageErrorDirective } from '../_directives/image-error.directive';
   ],
   declarations: [
     HomePage,
-    ImageErrorDirective
+    ImageErrorDirective,
+    StyleTypeDirective
   ]
 })
 export class HomePageModule {
