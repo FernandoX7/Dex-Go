@@ -12,6 +12,7 @@ import { map as _map } from 'lodash';
 export class PokedexService {
 
   pokemon: Observable<any>;
+  singlePokemon: Observable<any>;
 
   constructor(private http: HttpClient,
               private cacheService: CacheService) {
@@ -47,8 +48,28 @@ export class PokedexService {
 
   clearCache = (key: string) => this.cacheService.removeItem(key);
 
-  getPokemonById(id: number) {
-    return this.http.get(`https://pokeapi.co/api/v2/pokemon/${id}/`);
+  getPokemonById(id: number, forceRefresh: boolean) {
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}/`;
+    const cacheKey = DexGoConstants.CACHE_POKEMON_BY_ID + id;
+    let request = this.http.get(url)
+      .pipe(
+        map((data: any) => data),
+        tap((pokemon: any) => this.singlePokemon = pokemon));
+
+    if (forceRefresh) {
+      request = this.http.get(url)
+        .pipe(
+          map((data: any) => data),
+          tap((pokemon) => this.singlePokemon = pokemon));
+      const delayType = 'all'; // Send a request to the server every time
+      const ttl = 60 * 60 * 12; // 12 hours
+      const response = this.cacheService
+        .loadFromDelayedObservable(cacheKey, request, DexGoConstants.CACHE_POKEMON_BY_ID + id, ttl, delayType);
+
+      response.subscribe((data: any) => data);
+    }
+
+    return this.cacheService.loadFromObservable(cacheKey, request);
   }
 
   insertSpriteImages(pokemon) {

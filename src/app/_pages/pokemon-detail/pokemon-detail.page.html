@@ -1,9 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>pokemon-detail</ion-title>
+    <ion-title>
+      {{pokemonDetails?.name}}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <img src="{{pokemonDetails?.sprites?.front_default}}"/>
 </ion-content>
