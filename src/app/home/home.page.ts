@@ -25,8 +25,11 @@ export class HomePage implements OnInit {
       .subscribe((pokemon) => this.pokemon = pokemon);
   }
 
-  goToPokemonDetails(index: number) {
-    this.navController.navigateForward(`/pokemon/${index}`);
+  navigateToPokemonDetailPage(url: string) {
+    const splitUrl = url.split('/');
+    const id = splitUrl[splitUrl.length - 2];
+
+    this.navController.navigateForward([`pokemon-detail/${id}`]);
   }
 
   invalidateCache() {
