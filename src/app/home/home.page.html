@@ -15,11 +15,6 @@
     </ion-refresher-content>
   </ion-refresher>
 
-  <ion-button
-          (click)="invalidateCache()">
-    Invalidate Cache
-  </ion-button>
-
   <ion-virtual-scroll [items]="pokemon"
                       [headerFn]="myHeaderFn">
     <ion-item-divider *virtualHeader="let header">
@@ -35,8 +30,20 @@
              [src]="item?.sprites?.front_default">
       </ion-avatar>
       <ion-label>
-        <h2>{{item?.name}}</h2>
-        <h3>{{item?.url}}</h3>
+        <div class="item-content">
+          <div class="name-label">
+            {{item?.name}}
+          </div>
+
+          <div class="types-container">
+            <div class="tag">
+              Fire
+            </div>
+            <div class="tag">
+              Psychic
+            </div>
+          </div>
+        </div>
       </ion-label>
     </ion-item>
   </ion-virtual-scroll>
