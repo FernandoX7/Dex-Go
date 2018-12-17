@@ -5,6 +5,7 @@ import { map, tap } from 'rxjs/operators';
 import { CacheService } from 'ionic-cache';
 import { DexGoConstants } from '../_utilities/DexGoConstants';
 import { map as _map } from 'lodash';
+import { AllPokemonTypes } from '../../assets/data-dumps/all-pokemon-types';
 
 @Injectable({
   providedIn: 'root'
@@ -22,13 +23,19 @@ export class PokedexService {
     const cacheKey = DexGoConstants.CACHE_ALL_POKEMON;
     let request = this.http.get(url)
       .pipe(
-        map((data: any) => this.insertSpriteImages(data.results)),
+        map((data: any) => {
+          const withSprites = this.insertSpriteImages(data.results);
+          return this.addTypes(withSprites);
+        }),
         tap((pokemon: any) => this.pokemon = pokemon));
 
     if (refresher) {
       request = this.http.get(url)
         .pipe(
-          map((data: any) => this.insertSpriteImages(data.results)),
+          map((data: any) => {
+            const withSprites = this.insertSpriteImages(data.results);
+            return this.addTypes(withSprites);
+          }),
           tap((pokemon) => this.pokemon = pokemon));
       const delayType = 'all'; // Send a request to the server every time
       const ttl = 60 * 60 * 12; // 12 hours
@@ -104,6 +111,13 @@ export class PokedexService {
         front_shiny: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png`,
         front_shiny_female: null
       };
+      return item;
+    });
+  }
+
+  addTypes(pokemon: any) {
+    return _map(pokemon, (item: any, index) => {
+      item.types = AllPokemonTypes.types[index];
       return item;
     });
   }
