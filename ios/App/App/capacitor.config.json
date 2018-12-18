@@ -1,0 +1,6 @@
+{
+  "appId": "com.ionic4.test",
+  "appName": "dexGo",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}
