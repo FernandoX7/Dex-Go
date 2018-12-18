@@ -32,7 +32,7 @@
       <ion-label>
         <div class="item-content">
           <div class="name-label">
-            {{item?.name}}
+            {{item?.name | capitalizeFirstWord}}
           </div>
 
           <div class="types-container">
@@ -40,7 +40,7 @@
                  appStyleType
                  *ngFor="let type of item?.types"
                  [pokemonType]="type?.type?.name">
-              {{type?.type?.name}}
+              {{type?.type?.name | capitalizeFirstWord}}
             </div>
           </div>
         </div>
