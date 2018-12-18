@@ -1,6 +1,13 @@
 # Dex Go
 
-Ionic 4 Pokédex app
+Ionic 4 Pokédex mobile app
+
+## Screenshots
+
+<div style="display: flex">
+  <img src="https://i.imgur.com/pJk3hho.png" width="40%">
+  <img src="https://i.imgur.com/Wz8IFBF.png" width="40%">
+</div>
 
 ## Getting Started
 
