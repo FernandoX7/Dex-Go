@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PokedexService } from '../_services/pokedex.service';
 import { NavController } from '@ionic/angular';
-import { DexGoConstants } from '../_utilities/DexGoConstants';
+import { PokedexService } from '../../_services/pokedex.service';
+import { DexGoConstants } from '../../_utilities/DexGoConstants';
 
 @Component({
   selector: 'app-home',
