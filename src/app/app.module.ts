@@ -12,7 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CacheModule } from 'ionic-cache';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+  ],
   entryComponents: [],
   imports: [
     BrowserModule,
