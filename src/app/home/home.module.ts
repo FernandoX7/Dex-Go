@@ -7,10 +7,12 @@ import { RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
 import { ImageErrorDirective } from '../_directives/image-error.directive';
 import { StyleTypeDirective } from '../_directives/style-type.directive';
+import { DexGoPipesModule } from '../dex-go-pipes.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    DexGoPipesModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild([
